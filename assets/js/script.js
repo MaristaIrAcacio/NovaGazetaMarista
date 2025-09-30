@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentYearElement: document.getElementById('currentYear'),
         editionBanner: document.getElementById('editionBanner'),
         loadingScreen: document.getElementById('loadingScreen'),
-        
+
         // Novos elementos para a barra lateral
         sidebar: document.querySelector('.info-sidebar'),
         sidebarToggle: document.querySelector('.sidebar-toggle'),
@@ -116,25 +116,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupClickOutsideListener() {
         // Para cliques com mouse
         document.addEventListener('click', handleClickOutside);
-        
+
         // Para toques em dispositivos móveis
         document.addEventListener('touchstart', handleClickOutside);
-        
+
         function handleClickOutside(event) {
             const mobileMenu = DOM.mobileMenu;
             const mobileMenuBtn = DOM.mobileMenuBtn;
-            
+
             // Verifica se o clique/toque foi fora do menu e do botão do menu
-            if (state.isMobileMenuOpen && 
-                mobileMenu && !mobileMenu.contains(event.target) && 
+            if (state.isMobileMenuOpen &&
+                mobileMenu && !mobileMenu.contains(event.target) &&
                 mobileMenuBtn && !mobileMenuBtn.contains(event.target)) {
                 closeMobileMenu();
             }
-            
+
             // Verifica se o clique/toque foi fora da barra lateral e do seu botão
-            if (state.isSidebarOpen && 
-                DOM.sidebar && 
-                !DOM.sidebar.contains(event.target) && 
+            if (state.isSidebarOpen &&
+                DOM.sidebar &&
+                !DOM.sidebar.contains(event.target) &&
                 DOM.sidebarToggle && !DOM.sidebarToggle.contains(event.target)) {
                 toggleSidebar();
             }
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
         DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
         DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
-        
+
         // Fecha a barra lateral se estiver aberta
         if (state.isSidebarOpen) {
             toggleSidebar();
@@ -163,12 +163,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleSidebar() {
         state.isSidebarOpen = !state.isSidebarOpen;
         DOM.sidebar.classList.toggle('open', state.isSidebarOpen);
-        
+
         // Atualiza atributos de acessibilidade
         DOM.sidebarToggle.setAttribute('aria-expanded', state.isSidebarOpen);
-        DOM.sidebarToggle.setAttribute('aria-label', 
+        DOM.sidebarToggle.setAttribute('aria-label',
             state.isSidebarOpen ? 'Fechar barra lateral' : 'Abrir barra lateral');
-        
+
         // Fecha o menu mobile se estiver aberto
         if (state.isMobileMenuOpen) {
             toggleMobileMenu();
@@ -183,12 +183,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const arrowRight = document.querySelector('.nav-arrow-right');
 
         if (!menuContainer || !menu || !arrowLeft || !arrowRight) return;
-        
+
         const updateArrows = () => {
             const scrollLeft = menuContainer.scrollLeft;
             const scrollWidth = menu.scrollWidth;
             const clientWidth = menuContainer.clientWidth;
-            
+
             arrowLeft.classList.toggle('hidden', scrollLeft <= 0);
             arrowRight.classList.toggle('hidden', scrollLeft >= scrollWidth - clientWidth - 1);
         };
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Por favor, digite pelo menos 2 caracteres para buscar.');
             return;
         }
-        
+
         const results = filterNewsCards(searchTerm);
         displaySearchResults(results, searchTerm);
     }
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         return matchedCards;
     }
-    
+
     function displaySearchResults(results, searchTerm) {
         DOM.searchResults.innerHTML = '';
 
@@ -239,16 +239,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 DOM.searchResults.appendChild(highlightedCard);
             });
         }
-        
+
         DOM.allNewsContainer.classList.add('hidden');
         DOM.searchResultsContainer.classList.remove('hidden');
         DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
     }
-    
+
     function highlightSearchTerms(card, term) {
         const elementsToHighlight = card.querySelectorAll('h3, p');
         const regex = new RegExp(term, 'gi');
-        
+
         elementsToHighlight.forEach(el => {
             el.innerHTML = el.textContent.replace(regex, match => `<span class="search-highlight">${match}</span>`);
         });
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
             icon: weatherWidget.querySelector('.weather-icon i'),
             refreshBtn: weatherWidget.querySelector('.weather-refresh')
         };
-        
+
         const fetchWeather = async (lat, lon) => {
             try {
                 weatherElements.refreshBtn.classList.add('loading');
@@ -317,47 +317,55 @@ document.addEventListener('DOMContentLoaded', function () {
                 fetchWeather(-23.2927, -51.1732);
             }
         };
-        
+
         weatherElements.refreshBtn.addEventListener('click', getLocation);
         getLocation();
     }
 
     const images = document.querySelectorAll(".carousel img");
-        let current = 0;
-      
-        function showNextImage() {
-          images[current].classList.remove("active");
-          current = (current + 1) % images.length;
-          images[current].classList.add("active");
-        }
-      
-        setInterval(showNextImage, 6000); // troca a cada 6 segundos
+    let current = 0;
 
-        
-    (function() {
-           var script = document.createElement("script");
-           script.src = "https://unpkg.com/scrollreveal";
-           script.async = true;
-           script.onload = function() {
-               iniciarScrollReveal();
-           };
-           document.head.appendChild(script);
-       })();
-   
-       function iniciarScrollReveal() {
-       if (typeof ScrollReveal !== "undefined") {
-           ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay, .conteiner-sobre, .dobra-1-topo, .logo-conexao, .txt-dobra-1, .tittle-dobra-1-esquerda, .tittle-dobra-1-direita, .wrapper-text, .img-dobra-1-direita, .txt-dobra-1-direita, .btn-custom, .btn-text-wrap, .btn-arrow", {
-               duration: 1200,
-               origin: "bottom",
-               distance: "20px",
-               delay: 0.5,
-               reset: true
-           });
-       }
-   }
+    function showNextImage() {
+        images[current].classList.remove("active");
+        current = (current + 1) % images.length;
+        images[current].classList.add("active");
+    }
+
+    setInterval(showNextImage, 6000); // troca a cada 6 segundos
+
+
+    (function () {
+        var script = document.createElement("script");
+        script.src = "https://unpkg.com/scrollreveal";
+        script.async = true;
+        script.onload = function () {
+            iniciarScrollReveal();
+        };
+        document.head.appendChild(script);
+    })();
+
+    function iniciarScrollReveal() {
+        if (typeof ScrollReveal !== "undefined") {
+            ScrollReveal().reveal(" .content, .featured-news, .headline-container, .headline-card, .headline-content, .read-more-btn, .hidden, .search-results-title, .news-section, .news-card, .news-image, .news-card-content, .section-title, .footer-container, .footer-section, .footer-links, .newsletter-form, .newsletter-btn, .social-icons, .footer-bottom, .loading-overlay, .loading-spinner, .info-sidebar, .sidebar-toggle, .sidebar-icon, .sidebar-content, .sidebar-header, .sidebar-close, .sidebar-section, #searchResultsContainer, #searchResultsTitle, #searchResults, #allNews, #currentYear, #loadingOverlay, .conteiner-sobre, .dobra-1-topo, .logo-conexao, .txt-dobra-1, .tittle-dobra-1-esquerda, .tittle-dobra-1-direita, .wrapper-text, .img-dobra-1-direita, .txt-dobra-1-direita, .btn-custom, .btn-text-wrap, .btn-arrow, .conteudo, .indice, .card-item, .left-card, .right-card, .text-banner, .logo-container, .list-item", {
+                duration: 1200,
+                origin: "bottom",
+                distance: "20px",
+                delay: 0.5,
+                reset: true
+            });
+        }
+    }
 
     // --- INICIALIZAÇÃO ---
     initialize();
 });
 
+// Adiciona personalização aos cards da página sobre 
+const cards = document.querySelectorAll(".card-item");
 
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+      console.log("clicou");
+      card.classList.toggle("active");
+  });
+});

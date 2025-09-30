@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta Tags Essenciais -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+    <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
+    <!-- Scripts JavaScript -->
+    <script defer src="../assets/js/script.js"></script>
+
+    <!-- Título da Página -->
+    <title>Nova Gazeta Marista | Notícias da Escola</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./imagens/favicon.ico" type="image/x-icon">
+
+    <!-- Folhas de Estilo -->
+    <link rel="stylesheet" href="../assets/css/primcipal.css">
+    <link rel="stylesheet" href="../assets/css/mediaQuerySobre.css">
+
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Pré-conexão para melhor performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .logo-container {
+        padding: 0;
+
+    }
+</style>
+
+<body id="pagina-sobre">
+    <header class="header">
+
+        <div class="logo-container">
+            <h3 style="color:#ffff">SOBRE</h3>
+        </div>
+
+        </div>
+
+        <!-- Mostrar o clima -->
+        <div class="weather-widget">
+            <div class="weather-content">
+                <div class="weather-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="weather-info">
+                    <div class="weather-temp">--°C</div>
+                    <div class="weather-city">Carregando...</div>
+                    <div class="weather-desc">--</div>
+                </div>
+            </div>
+            <button class="weather-refresh" aria-label="Atualizar clima">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </header>
+    <!-- BANNER COM IMAGEM DA EQUIPE -->
+    <div class="banner-sobre">
+        <div class="text-banner">
+            <img src="../assets/img/logos/projetoco.png" alt="">
+            <b>O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração. Aqui, nossos alunos se
+                tornam jornalistas, apresentadores e criadores de conteúdo, transformando suas vozes em notícias que
+                importam.</b>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Menu Desktop -->
+            <div class="menu-container">
+                <button class="nav-arrow nav-arrow-left" aria-label="Scroll menu left">&#10094;</button>
+                <ul class="menu">
+                    <li><a href="/index.html">Últimas notícias</a></li>
+                    <li><a href="../paginas/saude.html">Saúde</a></li>
+                    <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                    <li><a href="../paginas/esportes.html">Esportes</a></li>
+                    <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                    <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                    <li><a href="../paginas/galeria.html">Galeria</a></li>
+                    <li><a href="../paginas/recomendados.html">Notícias Passadas</a></li>
+                    <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
+                </ul>
+                <button class="nav-arrow nav-arrow-right" aria-label="Scroll menu right">&#10095;</button>
+            </div>
+
+            <!-- Barra de Pesquisa -->
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
+                    aria-label="Campo de pesquisa de notícias">
+                <button id="searchBtn" aria-label="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Botão do Menu Mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="../paginas/saude.html">Saúde</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/esportes.html">Esportes</a></li>
+                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                <li><a href="../paginas/galeria.html">Galeria</a></li>
+                <li><a href="../paginas/recomendados.html">Notícias Passadas</a></li>
+                <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
+            </ul>
+
+            <!-- Pesquisa Mobile -->
+            <div class="mobile-search">
+                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
+                <button aria-label="Buscar"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tela de Carregamento Personalizada -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-logos">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+        </div>
+        <div class="square-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+        <!-- =========================================================================================================
+iNICIA SECTION SOBRE
+========================================================================================================= -->
+        <section id="sobre">
+            <div class="indice">
+                <div class="header-indice">
+                    <b>ÍNDICE</b>
+                </div>
+                <div class="list-indice">
+                    <a href="">
+                        <p><b>Sobre o Projeto Conexão</b>01</p>
+                    </a>
+                    <a href="#setores-conexao">
+                        <p><b>Setores Conexão</b>02</p>
+                    </a>
+                    <a href="#idealizacao">
+                        <p><b>Idealização</b>03</p>
+                    </a>
+                    <a href="#equipe-conexao">
+                        <p><b>Equipe Conexão</b>04</p>
+                    </a>
+                    <a href="#linha-do-tempo">
+                        <p><b>Linha do Tempo</b>05</p>
+                    </a>
+                    <a href="#metodologia">
+                        <p><b>Metodologia</b>06</p>
+                    </a>
+                    <a href="#impacto">
+                        <p><b>Impacto</b>07</p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="left-text-sobre">
+                <div class="header-sobre">
+                    <h1>SOBRE O PROJETO CONEXÃO</h1>
+                    <img src="../assets/img/decorativos/Line_short.png" alt="Elemento gráfico">
+                </div>
+                <div class="conteudo">
+                    <p>
+                        O Projeto Conexão, desenvolvido na Escola Social Marista Irmão Acácio, representa uma proposta
+                        pedagógica inovadora que integra comunicação, tecnologia e protagonismo estudantil. Iniciado em
+                        2022, o projeto se alicerça na abordagem metodológica do Design Thinking e tem como missão
+                        formar jovens críticos, criativos e comprometidos com a transformação social por meio de
+                        práticas comunicacionais reais. Atualmente, o projeto contempla múltiplas frentes: jornal
+                        impresso, jornal web, rádio escolar e podcast, envolvendo cerca de 70 estudantes do Ensino
+                        Fundamental e Médio Técnico, organizados em núcleos colaborativos. O projeto ainda conta com
+                        parcerias externas como o Grupo Tarobá de comunicação, e ainda recebe trimestralmente uma visita
+                        de um profissional da comunicação para uma conversa sobre carreira e mercado de trabalho.
+                    </p>
+                </div>
+            </div>
+
+            <article class="video-sobre">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Kyvp-op1NXg?si=h1FRFJ4osqYTBjsg"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </article>
+
+        </section>
+
+        <!-- =========================================================================================================
+INICIA SECTION SETORES CONEXÃO
+========================================================================================================= -->
+
+        <section id="setores-conexao">
+            <section id="title-projeto">
+                <div class="title-item">
+                    <h1>
+                        SETORES CONEXÃO
+                    </h1>
+                    <img src="../assets/img/decorativos/Line_short.png" alt="Linha">
+                </div>
+            </section>
+            <div class="list-card">
+                <article class="card-item">
+                    <header class="header">
+                        <div class="text">
+                            <h3>RÁDIO</h3>
+                        </div>
+                    </header>
+                    <div class="conteudo radio">
+                        <div class="desc-projeto">
+                            <b>
+                                A rádio escolar é controlada diretamente pelos alunos, que produzem notícias, músicas,
+                                comunicados para toda a comunidade, calendário sazonal e curiosidades para escola.
+                            </b>
+                            <b>
+                                Funciona como canal de comunicação rápida e direta dentro do colégio.
+                            </b>
+                            <b>
+                                Incentiva habilidades de locução, improviso, produção de pautas e domínio técnico dos
+                                equipamentos de áudio.
+                            </b>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-item">
+                    <header class="header">
+                        <div class="text">
+                            <h3>EDITORIAL</h3>
+                        </div>
+                    </header>
+                    <div class="conteudo editorial">
+                        <div class="desc-projeto">
+                            <b>
+                                O Jornal Conexão é publicado mensalmente em formato impresso e digital. Nele, os alunos
+                                assumem diferentes papéis — repórteres, redatores, diagramadores e revisores — e
+                                produzem conteúdos como reportagens, entrevistas, artigos de opinião e crônicas. A
+                                versão impressa circula dentro da escola e comunidade local, enquanto a versão digital
+                                amplia o alcance para um público ainda maior. O jornal funciona como um verdadeiro
+                                laboratório de jornalismo, incentivando a pesquisa, a escrita e o pensamento crítico dos
+                                jovens.
+                            </b>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-item">
+                    <header class="header">
+                        <div class="text">
+                            <h3>JORNAL WEB</h3>
+                        </div>
+                    </header>
+                    <div class="conteudo jornalWeb">
+                        <div class="desc-projeto">
+                            <b>
+                                O Jornal Web é o espaço digital que integra todas as produções do projeto. Ele funciona
+                                como um portal atualizado mensalmente, que reúne as edições do jornal. Mais do que
+                                uma simples versão online, o Jornal Web é o ponto de encontro da comunicação estudantil,
+                                onde diferentes linguagens se conectam e ficam disponíveis para a comunidade acompanhar
+                                de forma acessível, moderna e interativa.
+                            </b>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card-item">
+                    <header class="header">
+                        <div class="text">
+                            <h3>PODCAST</h3>
+                        </div>
+                    </header>
+                    <div class="conteudo podcast">
+                        <div class="desc-projeto">
+                            <b>
+                                O Podcast Conexão é a mídia mais recente do projeto e já se tornou um sucesso entre os
+                                alunos. Produzido mensalmente, traz entrevistas e bate-papos sobre cultura, esportes,
+                                atualidades e temas relevantes para a comunidade escolar. Cada episódio envolve os
+                                estudantes em todo o processo: da roteirização e entrevistas até a edição de áudio e
+                                publicação.
+                            </b>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =========================================================================================================
+INICIA SECTION IDEALIZAÇÃO
+========================================================================================================= -->
+        <section id="idealizacao">
+            <header class="header-idealizacao">
+                <h1>IDEALIZAÇÃO</h1>
+                <img src="../assets/img/decorativos/Line_short.png" alt="Linha">
+            </header>
+            <div class="box-conteudo">
+                <article class="left-card">
+                    <p>
+                        O Jornal Web é fruto de uma iniciativa educacional que busca unir comunicação, tecnologia e
+                        protagonismo juvenil. Idealizado por professores e alunos do Colégio Marista Ir. Acácio, o
+                        projeto nasceu para oferecer um espaço onde estudantes pudessem experimentar diferentes
+                        linguagens jornalísticas, fortalecer a criatividade e desenvolver habilidades de trabalho em
+                        equipe, investigação e expressão crítica.
+                    </p>
+                </article>
+
+                <article class="center-img">
+                    <img src="../assets/img/decorativos/line_vertical.png" alt="">
+                </article>
+
+                <article class="right-card">
+                    <div class="card-citacao">
+                        <header class="header-card">
+                            <h3>Carla Ravaneda</h3>
+                            <img src="../assets/img/decorativos/cordenadora-carla.png" alt="">
+                        </header>
+                        <div class="conteudo-card">
+                            <b>
+                                “O Projeto Conexão é mais do que uma proposta técnica. É um espaço onde os alunos
+                                constroem identidade, voz e pertencimento.”
+                            </b>
+                        </div>
+                        <footer>
+                            <p>Idealizadora do Projeto Conexão</p>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- =========================================================================================================
+INICIA SECTION EQUIPE CONEXÃO
+========================================================================================================= -->
+        <section id="equipe-conexao">
+            <article class="equipe">
+                <header class="header-equipe">
+                    <h4>
+                        COORDENAÇÃO
+                    </h4>
+                </header>
+                <ul class="lista-integrantes">
+                    <li>Carla Ravaneda</li>
+                    <li>Symon Pereira</li>
+                    <li>Heloisa Souza</li>
+                    <li>Tamires Okada</li>
+                    <li>Julia Vitória</li>
+                </ul>
+            </article>
+
+
+
+            <article class="equipe">
+                <header class="header-equipe">
+                    <h4>
+                        EDITORIAL
+                    </h4>
+                </header>
+                <ul class="lista-integrantes">
+                    <li>Yasmin Gonçalves</li>
+                    <li>Anny Vitória</li>
+                    <li>Matheus Martins</li>
+                    <li>Geovana Aparecida</li>
+                    <li>Vivian Oliveira</li>
+                    <li>Murillo Henrique </li>
+                    <li>Daniel Lopes</li>
+                    <li>João Pedro G.</li>
+                    <li>Mariane Lima</li>
+                </ul>
+
+            </article>
+
+            <article class="equipe">
+                <header class="header-equipe">
+                    <h4>
+                        JORNAL WEB
+                    </h4>
+                </header>
+                <ul class="lista-integrantes">
+                    <li></li>
+                    <li>Colaborador 1</li>
+                    <li>Colaborador 1</li>
+                    <li>Colaborador 1</li>
+                    <li>Colaborador 1</li>
+                    <li>Colaborador 1</li>
+                    <li>Colaborador 1</li>
+                </ul>
+
+            </article>
+
+            <article class="equipe">
+                <header class="header-equipe">
+                    <h4>
+                        PODCAST
+                    </h4>
+                </header>
+                <ul class="lista-integrantes">
+                    <li>Kauê Alvarenga</li>
+                    <li>Gabriela Vitorelli</li>
+                    <li>Luiza Rofatto</li>
+                    <li>Maria Eduarda</li>
+                    <li>Leticia Carvalho</li>
+                    <li>Nickolas Reia</li>
+                    <li>Monique de Souza</li>
+                    <li>Sibelly Morghany</li>
+                </ul>
+            </article>
+            <article class="equipe">
+                <header class="header-equipe">
+                    <h4>
+                        RÁDIO
+                    </h4>
+                </header>
+                <ul class="lista-integrantes radio">
+                    <div class="matutino">
+                        <li>Willian de Almeida</li>
+                        <li>Mariane Lima</li>
+                        <li>Emanuel Pereira</li>
+                        <li>João Pedro F.</li>
+                        <li>Anne </li>
+                        <li>Maria Clara</li>
+                        <li>Melissa de Souza</li>
+                        <li>Luamy Alves</li>
+                        <li>Monique De Souza</li>
+                        <li>João Pedro G.</li>
+                        <li>Samuel Lima</li>
+                        <li>Sibele</li>
+                        <li>Nickolas Reis</li>
+                        <li>Vivian Oliveira</li>
+                    </div>
+                    <div class="vespertino">
+                        <li>Murillo Henrique</li>
+                        <li>Ana Gabrielly </li>
+                        <li>Agatha</li>
+                        <li>Sara da Costa Garcia</li>
+                        <li>Isabella Gonçalves</li>
+                        <li>Charlotte Megumi</li>
+                        <li>Maria Julia </li>
+                        <li>Maria Fernanda</li>
+                        <li>Ketelin Emanueli</li>
+                        <li>Nickolas Reis</li>
+                        <li>Julia</li>
+                        <li>Isadora Karoline</li>
+                        <li>María Cecília</li>
+                        <li>Nicoly </li>
+                        <li>Sofia Amaral</li>
+                    </div>
+                </ul>
+            </article>
+        </section>
+        <!-- =========================================================================================================
+INICIA SECTION LINHA DO TEMPO
+========================================================================================================= -->
+        <section id="linha-do-tempo">
+            <!-- Título da seção -->
+            <header class="header-linha-do-tempo">
+                <h1>LINHA DO TEMPO</h1>
+                <img src="../assets/img/decorativos/Line_short.png" alt="Linha">
+            </header>
+            <div class="timeline">
+                <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
+                    <div class="timeline__event__icon ">
+                        <i class="lni-cake"></i>
+
+                    </div>
+                    <div class="timeline__event__date">
+                        2022
+                    </div>
+                    <div class="timeline__event__content ">
+                        <div class="timeline__event__title">
+                            ÍNICIO DO PROJETO
+                        </div>
+                        <div class="timeline__event__description">
+                            <p>O projeto teve início a partir de uma atividade itinerante, na qual os estudantes
+                                visitaram a sede da Rede Tarobá de Comunicação. A vivência prática permitiu que os
+                                alunos compreendessem os gêneros jornalísticos em contexto real. Dessa experiência,
+                                surgiu o jornal impresso escolar, com publicação mensal. A versão digital foi lançada
+                                logo em seguida, com apoio dos professores das disciplinas técnicas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+                    <div class="timeline__event__icon">
+                        <i class="lni-burger"></i>
+
+                    </div>
+                    <div class="timeline__event__date">
+                        2023
+                    </div>
+                    <div class="timeline__event__content">
+                        <div class="timeline__event__title">
+                            ÍNICIO DA RÁDIO ESCOLAR
+                        </div>
+                        <div class="timeline__event__description">
+                            <p>A Rádio Escolar foi implementada, com transmissões diárias nos intervalos das aulas
+                                matutinas e vespertinas. A grade inclui duas notícias relevantes para a comunidade
+                                escolar, além de músicas de gêneros variados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+                    <div class="timeline__event__icon">
+                        <i class="lni-slim"></i>
+
+                    </div>
+                    <div class="timeline__event__date">
+                        2024
+                    </div>
+                    <div class="timeline__event__content">
+                        <div class="timeline__event__title">
+                            IDEALIZAÇÃO DO PODCAST
+                        </div>
+                        <div class="timeline__event__description">
+                            <p>Início da concepção do Podcast Conexão, com testes de formato, roteiro e edição.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="timeline__event animated fadeInUp timeline__event--type4">
+                    <div class="timeline__event__icon">
+                        <i class="lni-cake"></i>
+
+                    </div>
+                    <div class="timeline__event__date">
+                        2025
+                    </div>
+                    <div class="timeline__event__content">
+                        <div class="timeline__event__title">
+                            ÍNICIO DO PODCAST ESCOLAR
+                        </div>
+                        <div class="timeline__event__description">
+                            <p>Início oficial da produção do podcast, com previsão de divulgação das primeiras edições
+                                no segundo semestre.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================================================================================
+INICIA SECTION LOGO DO PROJETO CONEXÃO
+========================================================================================================= -->
+        <section id="logo">
+            <div class="box-logo">
+                <img src="../assets/img/logos/projetoco.png" alt="Logo Projeto Conexão">
+            </div>
+            <img src="../assets/img/decorativos/Line_short_white.png" alt="Linha">
+        </section>
+
+        <!-- =========================================================================================================
+INICIA SECTION METODOLOGIA
+========================================================================================================= -->
+
+        <section id="metodologia">
+            <div class="header-metodologia">
+                <h1>METODOLOGIA</h1>
+                <img src="../assets/img/decorativos/Line_short.png" alt="Linha">
+            </div>
+            <div class="grid-items">
+                <article class="item">
+                    <div class="header-item">
+                        <h3>Matriz CSD</h3>
+                        <p>Design Thinking</p>
+                    </div>
+
+                    <div class="description-item">
+                        <b>
+                            Utilizada na organização editorial, permite aos estudantes levantar Certezas, Suposições e
+                            Dúvidas sobre os conteúdos a serem publicados.
+                        </b>
+                    </div>
+                </article>
+                <article class="item">
+                    <header class="header-item">
+                        <h3>Matriz SWOT</h3>
+                        <p>Design Thinking</p>
+                    </header>
+
+                    <div class="description-item">
+                        <b>
+                            Aplicada na análise da relevância de notícias e temas para o jornal e rádio, identificando
+                            forças, fraquezas, oportunidades e ameaças.
+                        </b>
+
+                    </div>
+                </article>
+                <article class="item">
+                    <div class="header-item">
+                        <h3>Kanban</h3>
+                        <p>Design Thinking</p>
+                    </div>
+
+                    <div class="description-item">
+                        <b>
+                            Ferramenta visual utilizada para o gerenciamento das etapas de produção, garantindo controle
+                            de
+                            prazos, organização e clareza de responsabilidades.
+                        </b>
+
+                    </div>
+                </article>
+                <article class="item">
+                    <div class="header-item">
+                        <h3>Prototipagem e Testes</h3>
+                        <p>Design Thinking</p>
+                    </div>
+
+                    <div class="description-item">
+                        <b>
+                            Aplicados em todas as mídias – do layout do jornal impresso ao roteiro do podcast –
+                            permitindo
+                            ajustes baseados em feedbacks reais.
+                        </b>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!--
+=========================================================================================================
+INICIA SECTION IMPACTO
+========================================================================================================= -->
+        <section id="impacto">
+            <div class="header-impacto">
+                <img src="../assets/img/decorativos/Line_short_vertical.png" alt="Linha">
+                <h1>IMPACTO</h1>
+            </div>
+            <div class="line-img">
+                <img src="../assets/img/decorativos/Line_long_thin.png" alt="">
+            </div>
+            <div class="list-impacto">
+                <arti class="card-impacto">
+                    <div class="header-card">
+                        <h2>Projeto Conexão recebe reconhecimento regional pelo JORNAL TÁROBA</h2>
+                        <b>12 ago 2025 às 17:13</b>
+                    </div>
+                    <div class="conteudo-card">
+                        <p>O Projeto Conexão, desenvolvido na Escola Social Marista Ir. Acácio, fortalece o protagonismo
+                            juvenil
+                            por meio do jornal impresso e digital, rádio e podcast. A iniciativa já ultrapassou os muros
+                            da
+                            escola e foi destacado pelo Jornal Tarobá como exemplo de inovação comunicacional e
+                            protagonismo
+                            estudantil em Londrina.
+                        </p>
+                    </div>
+                    <footer>
+                        <a href="https://taroba.com.br/noticias/cidade/projeto-conexao-transforma-educacao-com-protagonismo-juvenil-e-inovacao-comunicacional"
+                            target="_blank">
+                            <div class="link-card">
+                                <header>
+                                    <b>Veja a notícia completa pelo Jornal Tároba</b>
+                                    <img src="../assets/img/decorativos/icon_abrir.png" alt="">
+                                </header>
+                                <img src="../assets/img/decorativos/Line_links.png " alt="">
+                            </div>
+                        </a>
+                    </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Seção Projeto Conexão -->
+            <section class="footer-section">
+                <h3>Projeto Conexão</h3>
+                <p>O Projeto Conexão é uma iniciativa que une informação, criatividade e colaboração. Aqui, nossos
+                    alunos se tornam jornalistas, apresentadores e criadores de conteúdo, transformando suas vozes em
+                    notícias que importam.</p>
+                
+            </section>
+
+            <!-- Links Rápidos -->
+            <section class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="./html/contato.html">Contato</a></li>
+                    <li><a href="./html/privacidade.html">Política de Privacidade</a></li>
+                </ul>
+            </section>
+
+
+
+            <!-- Redes Sociais -->
+            <section class="footer-section">
+                <h3>Conecte-se</h3>
+                <div class="social-icons">
+                    <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Rodapé Inferior -->
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear"></span> Gazeta Marista. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

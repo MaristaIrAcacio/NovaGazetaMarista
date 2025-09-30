@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"type ="image/svg+xml" href="../assets/img/decorativos/icom.ico">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/decorativos/icom.ico">
     <meta name="description" content="Nova Gazeta Marista - Notícias e informações para a comunidade escolar">
     <!-- Scripts JavaScript -->
-     <script defer src="../assets/js/script.js"></script>
-    
+    <script defer src="../assets/js/script.js"></script>
+
     <!-- Título da Página -->
     <title>Nova Gazeta Marista | Notícias da Escola</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="./imagens/favicon.ico" type="image/x-icon">
-    
+
     <!-- Folhas de Estilo -->
     <link rel="stylesheet" href="../assets/css/primcipal.css">
-    
+
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <!-- Pré-conexão para melhor performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,23 +29,25 @@
 
 <body>
 
-    
-      <!-- Cabeçalho com Logo -->
+
+    <!-- Cabeçalho com Logo -->
     <header class="header">
         <style>
-    .logo-container { display: flex !important; flex-direction: row !important; }
-    @media (max-width: 768px) {
-        .logo-container { flex-direction: column !important; }
-    }
-</style>
-          <div class="logo-container">
-         <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" 
-         alt="Gazeta Marista" 
-         class="logo-icone">
-        <img src="../assets/img/logos/projetoco.png" 
-         alt="Rádio Conexão" 
-         class="logo-icone">
-</div>
+            .logo-container {
+                display: flex !important;
+                flex-direction: row !important;
+            }
+
+            @media (max-width: 768px) {
+                .logo-container {
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+        <div class="logo-container">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista" class="logo-icone">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão" class="logo-icone">
+        </div>
     </header>
 
     <!-- Navegação Principal -->
@@ -57,26 +60,22 @@
                 <li><a href="../paginas/esportes.html">Esportes</a></li>
                 <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
                 <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
-               <li><a href="../paginas/saude.html">saude</a></li>
+                <li><a href="../paginas/galeria.html">galeria</a></li>
+                <li><a href="../paginas/saude.html">saude</a></li>
+                <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
             </ul>
 
             <!-- Barra de Pesquisa -->
             <div class="search-container">
-                <input type="text" 
-                       placeholder="Pesquisar notícias..." 
-                       id="searchInput"
-                       aria-label="Campo de pesquisa de notícias">
+                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
+                    aria-label="Campo de pesquisa de notícias">
                 <button id="searchBtn" aria-label="Buscar">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
             <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" 
-                    id="mobileMenuBtn"
-                    aria-label="Abrir menu mobile"
-                    aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -89,36 +88,35 @@
                 <li><a href="../paginas/esportes.html">Esportes</a></li>
                 <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
                 <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li> 
-               <li><a href="../paginas/saude.html">saude</a></li>
+                <li><a href="../paginas/galeria.html">galeria</a></li>
+                <li><a href="../paginas/saude.html">saude</a></li>
+                <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
             </ul>
-            
+
             <!-- Pesquisa Mobile -->
             <div class="mobile-search">
-                <input type="text" 
-                       placeholder="Pesquisar..."
-                       aria-label="Campo de pesquisa mobile">
+                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </nav>
 
 
-    
-        <!-- Tela de Carregamento Personalizada -->
-<div id="loadingScreen" class="loading-screen">
-    <div class="loading-logos">
-        <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
-        <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+
+    <!-- Tela de Carregamento Personalizada -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-logos">
+            <img src="../assets/img/logos/gazeta-marista_radio-conexao.png" alt="Gazeta Marista">
+            <img src="../assets/img/logos/projetoco.png" alt="Rádio Conexão">
+        </div>
+        <div class="square-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-    <div class="square-loader">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-</div>
 
     <!-- Conteúdo Principal -->
     <main class="content">
@@ -131,7 +129,7 @@
         <!-- Seção de Todas as Notícias -->
         <div id="allNews">
             <h1 class="section-title">Notícias Passadas</h1>
-            
+
             <!-- Grid de Notícias -->
             <div class="news-section">
                 
@@ -150,60 +148,62 @@
                     </div>
                 </article>
 
-             
-                <article class="news-card" data-keywords="cigarro eletrônicos consequências">
-                    <img src="../assets/img/artigos/uso-de-cigarros-eletronicos-e-suas-consequencias.jpg" 
-                         alt="Descrição da imagem para acessibilidade"
-                        class="news-image">
-                    <div class="news-card-content">
-                    <h3>USO DE CIGARROS ELETRÔNICOS E SUAS CONSEQUÊNCIAS </h3>
-                    <p>As principais doenças causadas pelo cigarro eletrônico são as respiratórias, cardiovasculares como infarto, morte súbita e hipertensão arterial</p>
-                    <a href="../assets/postis/saude1'.html" class="read-more-btn">Continuar lendo</a>
-                    </div>
-                </article> 
 
-               
+                <article class="news-card" data-keywords="cigarro eletrônicos consequências">
+                    <img src="../assets/img/artigos/uso-de-cigarros-eletronicos-e-suas-consequencias.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
+                    <div class="news-card-content">
+                        <h3>USO DE CIGARROS ELETRÔNICOS E SUAS CONSEQUÊNCIAS </h3>
+                        <p>As principais doenças causadas pelo cigarro eletrônico são as respiratórias, cardiovasculares
+                            como infarto, morte súbita e hipertensão arterial</p>
+                        <a href="../assets/postis/saude1'.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
+
+
                 <article class="news-card" data-keywords="OS MEETUP DA ESCOLA E SUA INPORTÂNCIA">
-                    <img src="../assets/img/artigos/os-meetups-da-escola-e-sua-importancia.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                    <img src="../assets/img/artigos/os-meetups-da-escola-e-sua-importancia.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3>OS MEETUP DA ESCOLA E SUA INPORTÂNCIA</h3>
                         <p>Primeiro semestre de 2024 contou com um total de 3 MeetUps e 6 palestrantes</p>
                         <a href="../assets/postis/entretenimento2.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
-                
+                </article>
 
-            
-                <article class="news-card" data-keywords="A JORNADA DOS FUTUROS DELEGADOS INTERNACIONAIS DA NOSSA ESCOLA">
+
+
+                <article class="news-card"
+                    data-keywords="A JORNADA DOS FUTUROS DELEGADOS INTERNACIONAIS DA NOSSA ESCOLA">
                     <img src="../assets/img/artigos/a-jornada-dos-futuros-delegados-internacionais-da-nossa-escola.jpg"
-                    class="news-image">
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>A JORNADA DOS FUTUROS DELEGADOS INTERNACIONAIS DA NOSSA ESCOLA</h3>
-                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar perspectivas
+                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar
+                            perspectivas
                         </p>
                         <a href="../assets/postis/entretenimento4.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
-        
+                </article>
 
-                <article class="news-card" data-keywords="DIA A DIA NA RÁDIO CONEXÃO MARISTA: LOCUTORES COMPARTILHAM EXPERIÊNCIAS">
+
+                <article class="news-card"
+                    data-keywords="DIA A DIA NA RÁDIO CONEXÃO MARISTA: LOCUTORES COMPARTILHAM EXPERIÊNCIAS">
                     <img src="../assets/img/artigos/dia-a-dia-na-radio-conexao-marista-locutores-compartilham-experiencias.jpg"
-                    class="news-image">
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>DIA A DIA NA RÁDIO CONEXÃO MARISTA: LOCUTORES COMPARTILHAM EXPERIÊNCIAS</h3>
                         <p>Os locutores da Rádio Conexão Marista compartilharam como é a rotina no projeto,
                         </p>
                         <a href="../assets/postis/vida3.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
 
-                <article class="news-card" data-keywords="DIA DO COORDENADOR PEDAGÓGICO: UM OLHAR SOBRE O TRABALHO DA COORDENADORA MARTA">
-                    <img src="../assets/img/artigos/dia-do-coordenador-pedagogico-um-olhar-sobre-o-trabalho-da-coordenadora-marta.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                <article class="news-card"
+                    data-keywords="DIA DO COORDENADOR PEDAGÓGICO: UM OLHAR SOBRE O TRABALHO DA COORDENADORA MARTA">
+                    <img src="../assets/img/artigos/dia-do-coordenador-pedagogico-um-olhar-sobre-o-trabalho-da-coordenadora-marta.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3> DIA DO COORDENADOR PEDAGÓGICO: UM OLHAR SOBRE O TRABALHO DA COORDENADORA MARTA
                         </h3>
@@ -211,15 +211,15 @@
                         </p>
                         <a href="../assets/postis/entrevista0.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
 
-                <article class="news-card" data-keywords=" INTERVENÇÃO LITERÁRIA DO MÊS DE MARÇO CELEBRA CLARICE LISPECTOR">
-                    <img src="../assets/img/artigos/intervencao-literaria-do-mes-de-marco-celebra-clarice-lispector.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                <article class="news-card"
+                    data-keywords=" INTERVENÇÃO LITERÁRIA DO MÊS DE MARÇO CELEBRA CLARICE LISPECTOR">
+                    <img src="../assets/img/artigos/intervencao-literaria-do-mes-de-marco-celebra-clarice-lispector.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
-                        <h3> 
+                        <h3>
                             INTERVENÇÃO LITERÁRIA DO MÊS DE MARÇO CELEBRA CLARICE LISPECTOR
                         </h3>
                         <p>
@@ -230,65 +230,65 @@
                 </article>
 
 
-                 <article class="news-card" data-keywords=" Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro ">
-                    <img src="../assets/img/artigos/diretor-em-acao.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                <article class="news-card"
+                    data-keywords=" Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro ">
+                    <img src="../assets/img/artigos/diretor-em-acao.jpg" alt="Descrição da imagem para acessibilidade"
+                        class="news-image">
                     <div class="news-card-content">
-                        <h3> 
+                        <h3>
                             DIRETOR EM AÇÃO
                         </h3>
                         <p>
-                          Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro
+                            Entrevista com Diretor Luiz Fernando da Silva em homenagem ao 12 de novembro
                         </p>
                         <a href="../assets/postis/entrevista1.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
                 <article class="news-card" data-keywords=" Quem é a nossa nova pastoralista">
-                    <img src="../assets/img/artigos/quem-e-a-nossa-nova-pastoralista.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                    <img src="../assets/img/artigos/quem-e-a-nossa-nova-pastoralista.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
-                        <h3> 
+                        <h3>
                             Quem é a nossa nova pastoralista?
                         </h3>
                         <p>
-                          A coordenadora de pastoral Milady Leila Trava diz que pastoral é essencial na escola, pois ela traz o acolhimento Marista para os  
+                            A coordenadora de pastoral Milady Leila Trava diz que pastoral é essencial na escola, pois
+                            ela traz o acolhimento Marista para os
                         </p>
                         <a href="../assets/postis/entrevista2.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
-                  
-
-
-     <!-- Card de Notícia 1 -->
-     <article class="news-card" data-keywords="Biblioteca clube do livro leitura debate literário">
-        <img src="../assets/img/artigos/news-9_1.jpeg"
-             alt="Estudantes participando do clube do livro na biblioteca"
-             class="news-image">
-        <div class="news-card-content">
-            <h3>BIBLIOTECA LANÇA CLUBE DO LIVRO PARA INCENTIVAR A LEITURA</h3>
-            <p>A ideia de criar um Clube do Livro partiu da bibliotecária Tamires, que percebeu a necessidade de um projeto exclusivo da biblioteca escolar...</p>
-            <a href="../assets/postis/recomendados0.html" class="read-more-btn">Continuar lendo</a>
-        </div>
-    </article>
 
 
 
+                <!-- Card de Notícia 1 -->
+                <article class="news-card" data-keywords="Biblioteca clube do livro leitura debate literário">
+                    <img src="../assets/img/artigos/news-9_1.jpeg"
+                        alt="Estudantes participando do clube do livro na biblioteca" class="news-image">
+                    <div class="news-card-content">
+                        <h3>BIBLIOTECA LANÇA CLUBE DO LIVRO PARA INCENTIVAR A LEITURA</h3>
+                        <p>A ideia de criar um Clube do Livro partiu da bibliotecária Tamires, que percebeu a
+                            necessidade de um projeto exclusivo da biblioteca escolar...</p>
+                        <a href="../assets/postis/recomendados0.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
+                </article>
 
 
-               <!-- Card de Notícia 2  -->
+
+
+
+                <!-- Card de Notícia 2  -->
                 <article class="news-card" data-keywords="OAT computadores doação tecnologia ação social">
-                     <img src="../assets/img/artigos/news-13.jpg" 
-                         alt="Estudantes recebendo computadores novos"
-                         class="news-image">
-                     <div class="news-card-content">
-                     <h3>ESTUDANTES GANHAM NOVOS COMPUTADORES EM AÇÃO SOLIDÁRIA</h3>
-                    <p>No dia 21 de fevereiro, a Escola Social Marista Irmão Acácio recebeu a visita de uma importante iniciativa do projeto OAT, em parceria com uma Empresa Tecnológica...</p>
-                    <a href="../assets/postis/recomendados1.html" class="read-more-btn">Continuar lendo</a>
-                   </div>
+                    <img src="../assets/img/artigos/news-13.jpg" alt="Estudantes recebendo computadores novos"
+                        class="news-image">
+                    <div class="news-card-content">
+                        <h3>ESTUDANTES GANHAM NOVOS COMPUTADORES EM AÇÃO SOLIDÁRIA</h3>
+                        <p>No dia 21 de fevereiro, a Escola Social Marista Irmão Acácio recebeu a visita de uma
+                            importante iniciativa do projeto OAT, em parceria com uma Empresa Tecnológica...</p>
+                        <a href="../assets/postis/recomendados1.html" class="read-more-btn">Continuar lendo</a>
+                    </div>
                 </article>
 
                 <article class="news-card" data-keywords="Pastoral atividades retorno">
@@ -303,68 +303,72 @@
                 </article>
 
 
-             <!-- Card de Notícia 2 -->
+                <!-- Card de Notícia 2 -->
                 <article class="news-card" data-keywords="Pastoral atividades retorno">
-                    <img src="../assets/img/artigos/news-10.jpg" 
-                         alt="Grupo da pastoral em atividade"
-                         class="news-image">
+                    <img src="../assets/img/artigos/news-10.jpg" alt="Grupo da pastoral em atividade"
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>PASTORAL VOLTA ÀS ATIVIDADES</h3>
-                        <p>Na tarde do dia 19 de março (quarta-feira) o grupo da pastoral teve seu retorno às atividades normais de seus encontros...</p>
+                        <p>Na tarde do dia 19 de março (quarta-feira) o grupo da pastoral teve seu retorno às atividades
+                            normais de seus encontros...</p>
                         <a href="../assets/postis/entretenimento0.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
-                
-                 <article class="news-card" data-keywords="Encontro com os jornalistas Juliana Takaoka e Rodolfo Brandão">
-                    <img src="../assets/img/artigos/encontro-com-os-jornalistas-juliana-takaoka-e-rodolfo-brandao_1.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+
+                <article class="news-card"
+                    data-keywords="Encontro com os jornalistas Juliana Takaoka e Rodolfo Brandão">
+                    <img src="../assets/img/artigos/encontro-com-os-jornalistas-juliana-takaoka-e-rodolfo-brandao_1.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
-                        <h3> 
-                           Encontro com os jornalistas Juliana Takaoka e Rodolfo Brandão
+                        <h3>
+                            Encontro com os jornalistas Juliana Takaoka e Rodolfo Brandão
                         </h3>
                         <p>
-                          Os jornalistas vieram à escola para falarem um pouco sobre suas vidas profissionais e vivências
+                            Os jornalistas vieram à escola para falarem um pouco sobre suas vidas profissionais e
+                            vivências
                         </p>
                         <a href="../assets/postis/entretenimento6.html" class="read-more-btn">Continuar lendo</a>
                     </div>
                 </article>
 
-                 <article class="news-card" data-keywords="PROJETO BIBLIOTECA HUMANA INSPIRA ALUNOS COM HISTÓRIAS DE SUPERAÇÃO">
-                    <img src="../assets/img/artigos/projeto-biblioteca-humana-inspira-alunos-com-historias-de-superacao.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                <article class="news-card"
+                    data-keywords="PROJETO BIBLIOTECA HUMANA INSPIRA ALUNOS COM HISTÓRIAS DE SUPERAÇÃO">
+                    <img src="../assets/img/artigos/projeto-biblioteca-humana-inspira-alunos-com-historias-de-superacao.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3>PROJETO BIBLIOTECA HUMANA INSPIRA ALUNOS COM HISTÓRIAS DE SUPERAÇÃO</h3>
                         <p>A Biblioteca Humana foi um projeto idealizado por professores da escola,
                         </p>
                         <a href="../assets/postis/entretenimento5.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
-                       <article class="news-card" data-keywords="SCOLA SOCIAL MARISTA IR. ACÁCIO, FAZ COMEMORAÇÃO À SEMANA DA CRIANÇA">
-                    <img src="../assets/img/artigos/escola-social-marista-ir-acacio-faz-comemoracao-a-semana-da-crianca.jpg" 
-                    alt="Descrição da imagem para acessibilidade"
-                    class="news-image">
+                <article class="news-card"
+                    data-keywords="SCOLA SOCIAL MARISTA IR. ACÁCIO, FAZ COMEMORAÇÃO À SEMANA DA CRIANÇA">
+                    <img src="../assets/img/artigos/escola-social-marista-ir-acacio-faz-comemoracao-a-semana-da-crianca.jpg"
+                        alt="Descrição da imagem para acessibilidade" class="news-image">
                     <div class="news-card-content">
                         <h3>ESCOLA SOCIAL MARISTA IR. ACÁCIO, FAZ COMEMORAÇÃO À SEMANA DA CRIANÇA </h3>
-                        <p>Na escola Marista Social Ir.Acacio, aconteceu um evento de diversão em comemoração a semana da criança nos dias 10 e 11 de 
+                        <p>Na escola Marista Social Ir.Acacio, aconteceu um evento de diversão em comemoração a semana
+                            da criança nos dias 10 e 11 de
                         </p>
                         <a href="../assets/postis/vida2.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
 
-                <article class="news-card" data-keywords="ESCOLA MARISTA SOCIAL IRMÃO ACÁCIO PARTICIPA DE EVENTO SOBRE INOVAÇÃO E TECNOLOGIA">
+                <article class="news-card"
+                    data-keywords="ESCOLA MARISTA SOCIAL IRMÃO ACÁCIO PARTICIPA DE EVENTO SOBRE INOVAÇÃO E TECNOLOGIA">
                     <img src="../assets/img/artigos/escola-marista-social-irmao-acacio-participa-de-evento-sobre-inovacao-e-tecnologia.png"
-                    class="news-image">
+                        class="news-image">
                     <div class="news-card-content">
                         <h3>ESCOLA MARISTA SOCIAL IRMÃO ACÁCIO PARTICIPA DE EVENTO SOBRE INOVAÇÃO E TECNOLOGIA</h3>
-                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar perspectivas
+                        <p>O Marista Social, participou da ECO.TIC Nova 2023. O evento teve como objetivo ampliar
+                            perspectivas
                         </p>
                         <a href="../assets/postis/recomendados2.html" class="read-more-btn">Continuar lendo</a>
                     </div>
-                </article> 
+                </article>
 
 
                 <!-- Outros cards de notícia... -->
@@ -373,7 +377,7 @@
     </main>
 
     <!-- Rodapé -->
-   <footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <!-- Seção Projeto Conexão -->
             <section class="footer-section">
@@ -393,8 +397,6 @@
                 </ul>
             </section>
 
-           
-
             <!-- Redes Sociais -->
             <section class="footer-section">
                 <h3>Conecte-se</h3>
@@ -412,4 +414,5 @@
     </footer>
 
 </body>
+
 </html>
