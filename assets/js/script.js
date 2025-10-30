@@ -6,7 +6,7 @@
  * @description Script principal para interatividade do site Gazeta Marista.
  * Gerencia o menu mobile, busca, carrosséis, widget de clima, barra lateral
  * e a otimização da tela de carregamento.
- * @version 3.1
+ * @version 3.3 - Corrigido erro do carrossel e menu mobile
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -38,8 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
         isSidebarOpen: false
     };
 
+    // --- VARIÁVEIS DO CARROSSEL ---
+    let carouselInterval;
+    let currentImageIndex = 0;
+
     // --- FUNÇÕES DE INICIALIZAÇÃO ---
     function initialize() {
+        console.log('Inicializando aplicação...');
+        
         if (DOM.loadingScreen) handleLoadingScreen();
         updateFooterYear();
         renderEditionBanner();
@@ -47,7 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
         animateNewsCards();
         initMenuCarousel();
         initWeatherWidget();
-        setupClickOutsideListener(); // Adicionado para fechar menu ao clicar fora
+        initCarousel(); // Inicializa o carrossel com verificações de segurança
+        setupClickOutsideListener();
+        
+        // Garante que o menu mobile inicie oculto
+        if (DOM.mobileMenu && !DOM.mobileMenu.classList.contains('hidden')) {
+            DOM.mobileMenu.classList.add('hidden');
+        }
     }
 
     // --- MANIPULAÇÃO DA TELA DE CARREGAMENTO ---
@@ -67,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // atualisa a data da edição
     function renderEditionBanner() {
         if (DOM.editionBanner) {
             const year = new Date().getFullYear();
@@ -88,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Menu mobile
         if (DOM.mobileMenuBtn) {
             DOM.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            console.log('Botão do menu mobile configurado');
+        } else {
+            console.log('Botão do menu mobile não encontrado');
         }
 
         // Busca
@@ -114,10 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- FUNÇÃO PARA FECHAR MENU AO CLICAR FORA ---
     function setupClickOutsideListener() {
-        // Para cliques com mouse
         document.addEventListener('click', handleClickOutside);
-
-        // Para toques em dispositivos móveis
         document.addEventListener('touchstart', handleClickOutside);
 
         function handleClickOutside(event) {
@@ -144,8 +155,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- CONTROLE DO MENU MOBILE ---
     function toggleMobileMenu() {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
-        DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
-        DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
+        
+        if (DOM.mobileMenu) {
+            DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
+            DOM.mobileMenu.classList.toggle('hidden', !state.isMobileMenuOpen);
+        }
+        
+        if (DOM.mobileMenuBtn) {
+            DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
+        }
+
+        console.log('Menu mobile:', state.isMobileMenuOpen ? 'aberto' : 'fechado');
 
         // Fecha a barra lateral se estiver aberta
         if (state.isSidebarOpen) {
@@ -162,12 +182,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- CONTROLE DA BARRA LATERAL ---
     function toggleSidebar() {
         state.isSidebarOpen = !state.isSidebarOpen;
-        DOM.sidebar.classList.toggle('open', state.isSidebarOpen);
+        
+        if (DOM.sidebar) {
+            DOM.sidebar.classList.toggle('open', state.isSidebarOpen);
+        }
 
         // Atualiza atributos de acessibilidade
-        DOM.sidebarToggle.setAttribute('aria-expanded', state.isSidebarOpen);
-        DOM.sidebarToggle.setAttribute('aria-label',
-            state.isSidebarOpen ? 'Fechar barra lateral' : 'Abrir barra lateral');
+        if (DOM.sidebarToggle) {
+            DOM.sidebarToggle.setAttribute('aria-expanded', state.isSidebarOpen);
+            DOM.sidebarToggle.setAttribute('aria-label',
+                state.isSidebarOpen ? 'Fechar barra lateral' : 'Abrir barra lateral');
+        }
 
         // Fecha o menu mobile se estiver aberto
         if (state.isMobileMenuOpen) {
@@ -182,7 +207,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const arrowLeft = document.querySelector('.nav-arrow-left');
         const arrowRight = document.querySelector('.nav-arrow-right');
 
-        if (!menuContainer || !menu || !arrowLeft || !arrowRight) return;
+        if (!menuContainer || !menu || !arrowLeft || !arrowRight) {
+            console.log('Elementos do carrossel do menu não encontrados');
+            return;
+        }
 
         const updateArrows = () => {
             const scrollLeft = menuContainer.scrollLeft;
@@ -198,6 +226,81 @@ document.addEventListener('DOMContentLoaded', function () {
         menuContainer.addEventListener('scroll', updateArrows);
         window.addEventListener('resize', updateArrows);
         updateArrows();
+        
+        console.log('Carrossel do menu inicializado');
+    }
+
+    // --- CARROSSEL DE IMAGENS (COMPLETAMENTE CORRIGIDO) ---
+    function initCarousel() {
+        const images = document.querySelectorAll(".carousel img");
+        
+        console.log('Verificando carrossel...');
+        console.log('Elemento .carousel:', document.querySelector('.carousel'));
+        console.log('Imagens encontradas:', images.length);
+
+        // VERIFICAÇÃO ROBUSTA - só inicializa se o carrossel existir
+        if (!images || images.length === 0) {
+            console.log('Carrossel não encontrado nesta página. Função não executada.');
+            return; // Sai da função se não houver carrossel
+        }
+
+        console.log('Inicializando carrossel - Imagens encontradas:', images.length);
+        
+        // Reseta o índice
+        currentImageIndex = 0;
+        
+        // Remove a classe active de todas as imagens primeiro
+        images.forEach(img => {
+            img.classList.remove("active");
+        });
+        
+        // Ativa a primeira imagem
+        if (images[0]) {
+            images[0].classList.add("active");
+            console.log('Primeira imagem ativada');
+        }
+
+        // Limpa qualquer intervalo existente
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+        }
+
+        // Inicia o intervalo apenas se houver mais de uma imagem
+        if (images.length > 1) {
+            carouselInterval = setInterval(showNextImage, 6000);
+            console.log('Intervalo do carrossel iniciado');
+        } else {
+            console.log('Apenas uma imagem encontrada - intervalo não iniciado');
+        }
+    }
+
+    function showNextImage() {
+        const images = document.querySelectorAll(".carousel img");
+        
+        // VERIFICAÇÃO DUPLA DE SEGURANÇA
+        if (!images || images.length === 0) {
+            console.log('Carrossel: Nenhuma imagem disponível - limpando intervalo');
+            if (carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = null;
+            }
+            return;
+        }
+
+        // Remove classe da imagem atual (com verificação)
+        if (images[currentImageIndex]) {
+            images[currentImageIndex].classList.remove("active");
+        }
+        
+        // Avança para a próxima imagem
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        
+        // Adiciona classe à nova imagem atual (com verificação)
+        if (images[currentImageIndex]) {
+            images[currentImageIndex].classList.add("active");
+        }
+        
+        console.log('Carrossel: Imagem atual:', currentImageIndex);
     }
 
     // --- LÓGICA DE PESQUISA ---
@@ -227,6 +330,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displaySearchResults(results, searchTerm) {
+        if (!DOM.searchResults) return;
+        
         DOM.searchResults.innerHTML = '';
 
         if (results.length === 0) {
@@ -240,9 +345,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        DOM.allNewsContainer.classList.add('hidden');
-        DOM.searchResultsContainer.classList.remove('hidden');
-        DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
+        if (DOM.allNewsContainer) DOM.allNewsContainer.classList.add('hidden');
+        if (DOM.searchResultsContainer) {
+            DOM.searchResultsContainer.classList.remove('hidden');
+            DOM.searchResultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function highlightSearchTerms(card, term) {
@@ -259,7 +366,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function initWeatherWidget() {
         const API_KEY = '5968cf52fd3711482404d885547a6757';
         const weatherWidget = document.querySelector('.weather-widget');
-        if (!weatherWidget) return;
+        if (!weatherWidget) {
+            console.log('Widget de clima não encontrado');
+            return;
+        }
 
         const weatherElements = {
             temp: weatherWidget.querySelector('.weather-temp'),
@@ -268,6 +378,12 @@ document.addEventListener('DOMContentLoaded', function () {
             icon: weatherWidget.querySelector('.weather-icon i'),
             refreshBtn: weatherWidget.querySelector('.weather-refresh')
         };
+
+        // Verifica se todos os elementos do clima existem
+        if (!weatherElements.temp || !weatherElements.city || !weatherElements.desc || !weatherElements.icon || !weatherElements.refreshBtn) {
+            console.log('Elementos do widget de clima incompletos');
+            return;
+        }
 
         const fetchWeather = async (lat, lon) => {
             try {
@@ -320,20 +436,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         weatherElements.refreshBtn.addEventListener('click', getLocation);
         getLocation();
+        
+        console.log('Widget de clima inicializado');
     }
 
-    const images = document.querySelectorAll(".carousel img");
-    let current = 0;
-
-    function showNextImage() {
-        images[current].classList.remove("active");
-        current = (current + 1) % images.length;
-        images[current].classList.add("active");
-    }
-
-    setInterval(showNextImage, 6000); // troca a cada 6 segundos
-
-
+    // --- SCROLL REVEAL ANIMATIONS ---
     (function () {
         var script = document.createElement("script");
         script.src = "https://unpkg.com/scrollreveal";
@@ -361,11 +468,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Adiciona personalização aos cards da página sobre 
-const cards = document.querySelectorAll(".card-item");
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-      console.log("clicou");
-      card.classList.toggle("active");
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll(".card-item");
+    
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            console.log("Card clicado");
+            card.classList.toggle("active");
+        });
+    });
 });

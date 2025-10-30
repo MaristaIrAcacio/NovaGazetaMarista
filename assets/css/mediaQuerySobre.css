@@ -25,11 +25,10 @@
         transform: none;
         box-shadow: none;
 
-        .desc-projeto {
-            opacity: "";
-            background-color: "";
-            transition: "";
-            opacity: "";
+    .card-item:hover .desc-projeto {
+    opacity: 0;  /* ✅ Use 0 em vez de string vazia */
+    background-color: transparent;  /* ✅ Use transparent ou remove */
+    transition: none;  /* ✅ Ou use valores válidos */
         }
 
     }
