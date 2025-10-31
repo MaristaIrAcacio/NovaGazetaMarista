@@ -52,29 +52,36 @@
     <!-- Navegação Principal -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Menu Desktop -->
-            <ul class="menu">
-                <li><a href="../index.html">Últimas Notícias</a></li>
-                <li><a href="../paginas/saude.html">Saúde</a></li>
-                <li><a href="../paginas/esportes.html">Esportes</a></li>
-                <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
-                <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li>
-                <li><a href="../paginas/recomendados.html">Notícias Passadas</a></li>
-                <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
-            </ul>
+            <div class="menu-container">
+                <ul class="menu">
+                    <li><a href="../paginas/saude.html">Saúde</a></li>
+                    <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                    <li><a href="../paginas/esportes.html">Esportes</a></li> 
+                    <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
+                    <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
+                    <li><a href="../paginas/galeria.html">Galeria</a></li> 
+                    <li><a href="../paginas/recomendados.html">Notícias Passadas</a></li>
+                    <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
+                </ul>
+                
+            </div>
 
             <!-- Barra de Pesquisa -->
             <div class="search-container">
-                <input type="text" placeholder="Pesquisar notícias..." id="searchInput"
-                    aria-label="Campo de pesquisa de notícias">
+                <input type="text" 
+                       placeholder="Pesquisar notícias..." 
+                       id="searchInput"
+                       aria-label="Campo de pesquisa de notícias">
                 <button id="searchBtn" aria-label="Buscar">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
 
             <!-- Botão do Menu Mobile -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu mobile" aria-expanded="false">
+            <button class="mobile-menu-btn" 
+                    id="mobileMenuBtn"
+                    aria-label="Abrir menu mobile"
+                    aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -82,19 +89,21 @@
         <!-- Menu Mobile -->
         <div class="mobile-menu" id="mobileMenu">
             <ul>
-                <li><a href="../index.html">Últimas Notícias</a></li>
                 <li><a href="../paginas/saude.html">Saúde</a></li>
-                <li><a href="../paginas/esportes.html">Esportes</a></li>
+                <li><a href="../paginas/entretenimento.html">Entretenimento</a></li>
+                <li><a href="../paginas/esportes.html">Esportes</a></li> 
                 <li><a href="../paginas/vida-estudantil.html">Vida Estudantil</a></li>
                 <li><a href="../paginas/entrevistas.html">Entrevistas</a></li>
-                <li><a href="../paginas/galeria.html">galeria</a></li>
+                <li><a href="../paginas/galeria.html">Galeria</a></li> 
                 <li><a href="../paginas/recomendados.html">Notícias Passadas</a></li>
                 <li><a href="../paginas/sobre.html">Sobre o Projeto</a></li>
             </ul>
-
+            
             <!-- Pesquisa Mobile -->
             <div class="mobile-search">
-                <input type="text" placeholder="Pesquisar..." aria-label="Campo de pesquisa mobile">
+                <input type="text" 
+                       placeholder="Pesquisar..."
+                       aria-label="Campo de pesquisa mobile">
                 <button aria-label="Buscar"><i class="fas fa-search"></i></button>
             </div>
         </div>
