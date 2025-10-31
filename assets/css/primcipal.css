@@ -1240,7 +1240,6 @@ ul.lista-integrantes.radio {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    overflow: hidden;
     padding: 2px 24px;
 }
 

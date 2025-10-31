@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
         setupClickOutsideListener();
         
         // Garante que o menu mobile inicie oculto
-        if (DOM.mobileMenu && !DOM.mobileMenu.classList.contains('hidden')) {
-            DOM.mobileMenu.classList.add('hidden');
+        if (DOM.mobileMenu) {
+            DOM.mobileMenu.classList.remove('active');
         }
     }
 
@@ -155,12 +155,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- CONTROLE DO MENU MOBILE ---
     function toggleMobileMenu() {
         state.isMobileMenuOpen = !state.isMobileMenuOpen;
-        
+
         if (DOM.mobileMenu) {
             DOM.mobileMenu.classList.toggle('active', state.isMobileMenuOpen);
-            DOM.mobileMenu.classList.toggle('hidden', !state.isMobileMenuOpen);
+            // Remove a classe 'hidden' quando ativo, adiciona quando inativo
+            if (state.isMobileMenuOpen) {
+                DOM.mobileMenu.classList.remove('hidden');
+            } else {
+                DOM.mobileMenu.classList.add('hidden');
+            }
         }
-        
+
         if (DOM.mobileMenuBtn) {
             DOM.mobileMenuBtn.setAttribute('aria-expanded', state.isMobileMenuOpen);
         }
