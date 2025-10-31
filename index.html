@@ -500,3 +500,41 @@
     </div>
 </body>
 </html>
+
+<script>
+// CÓDIGO DE EMERGÊNCIA - REMOVER DEPOIS DE TESTAR
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚨 EXECUTANDO CORREÇÃO DE EMERGÊNCIA');
+    
+    // Forçar visibilidade dos cards
+    const allNews = document.getElementById('allNews');
+    const newsSection = document.querySelector('.news-section');
+    const newsCards = document.querySelectorAll('.news-card');
+    
+    if (allNews) {
+        allNews.style.display = 'block';
+        allNews.style.opacity = '1';
+        allNews.style.visibility = 'visible';
+        allNews.classList.remove('hidden');
+    }
+    
+    if (newsSection) {
+        newsSection.style.display = 'grid';
+        newsSection.style.opacity = '1';
+        newsSection.classList.remove('hidden');
+    }
+    
+    newsCards.forEach(card => {
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
+        card.classList.remove('hidden');
+    });
+    
+    console.log('✅ Cards forçados a aparecer');
+    
+    // Debug
+    console.log('allNews:', allNews);
+    console.log('newsCards encontrados:', newsCards.length);
+});
+</script>

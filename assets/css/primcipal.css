@@ -2445,3 +2445,32 @@ html {
         padding: 12px 15px;
     }
 }
+/* CORREÇÃO DE EMERGÊNCIA - CARDS SUMINDO */
+#allNews {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.news-section {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: var(--space-lg) !important;
+    margin-top: var(--space-lg) !important;
+}
+
+.news-card {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* Remover a classe hidden dos elementos críticos */
+#allNews.hidden,
+.news-section.hidden,
+.news-card.hidden {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
