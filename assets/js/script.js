@@ -79,13 +79,6 @@
 //         }
 //     }
 
-//     function renderEditionBanner() {
-//         if (DOM.editionBanner) {
-//             const year = new Date().getFullYear();
-//             DOM.editionBanner.textContent = `Edição nº 08 – ${year}`;
-//         }
-//     }
-
 //     function animateNewsCards() {
 //         DOM.newsCards.forEach((card, index) => {
 //             card.style.opacity = '0';
@@ -1020,12 +1013,6 @@ function initUtilities() {
     // Atualizar ano no footer
     if (DOM.currentYearElement) {
         DOM.currentYearElement.textContent = new Date().getFullYear();
-    }
-    
-    // Atualizar banner da edição
-    if (DOM.editionBanner) {
-        const year = new Date().getFullYear();
-        DOM.editionBanner.textContent = `Edição nº 08 – ${year}`;
     }
     
     // Animações de entrada para cards
