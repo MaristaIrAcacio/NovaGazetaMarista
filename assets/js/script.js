@@ -642,7 +642,6 @@ function checkEssentialElements() {
     const essentials = [
         { element: DOM.mobileMenuBtn, name: 'Botão Menu Mobile' },
         { element: DOM.mobileMenu, name: 'Menu Mobile' },
-        { element: DOM.loadingScreen, name: 'Tela de Carregamento' }
     ];
     
     let allFound = true;
